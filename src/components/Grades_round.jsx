@@ -20,7 +20,7 @@ export function Grade_round({grades}) {
                         </td>
                     </tr>
             }
-            else if( grade >= 39 && ( grade % 10 === 9 || grade % 10 === 8 || grade % 10 === 4 || grade % 10 === 3)){
+            else if( grade >= 38 && ( grade % 10 === 9 || grade % 10 === 8 || grade % 10 === 4 || grade % 10 === 3)){
             return <tr style= {{backgroundColor: getBackgroundColor(grade)}}>
                         <td>
                             { count }
@@ -59,11 +59,11 @@ export function Grade_round({grades}) {
 
 const getBackgroundColor = (grade) =>{
     let color;
-    if (grade === 39) {
+    if (grade === 39 || grade === 38) {
         color = 'blue';
     } else if (grade >= 40) {
         color = 'green';
-    } else if (grade < 39) {
+    } else if (grade < 38) {
         color = 'red';
     }
     return color;
