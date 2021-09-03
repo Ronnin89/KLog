@@ -4,7 +4,7 @@ export function Grade_round({grades}) {
     
     var grades_rounds = grades.map(function(grade){
         if( grade >= 39 && ( grade % 10 === 9 || grade % 10 === 8 || grade % 10 === 4 || grade % 10 === 3)){
-          return <tr>
+          return <tr style= {{backgroundColor: getBackgroundColor(grade)}}>
                     <td>
                         {grades.indexOf(grade)}
                     </td>
@@ -16,7 +16,7 @@ export function Grade_round({grades}) {
                     </td>
                 </tr>
       }
-      return <tr>
+      return <tr style= {{backgroundColor: getBackgroundColor(grade)}}>
                     <td>
                         {grades.indexOf(grade)}
                     </td>
@@ -27,8 +27,6 @@ export function Grade_round({grades}) {
                         { grade }
                     </td>
                 </tr>
-            
-
     })
     return <table >
                 <tr>
@@ -40,3 +38,15 @@ export function Grade_round({grades}) {
             </table>
 
 }
+
+const getBackgroundColor = (grade) =>{
+    let color;
+    if (grade === 39) {
+        color = 'blue';
+    } else if (grade >= 40) {
+        color = 'green';
+    } else if (grade < 39) {
+        color = 'red';
+    }
+    return color;
+};
